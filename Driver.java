@@ -10,6 +10,9 @@ public class Driver{
 		  list.display();
 		  list.removeFirst();
 		  list.removeLast();
+		  list.find(6);
+		  list.contains(21);
+		  list.clear();
 		  
 		  
 	}
