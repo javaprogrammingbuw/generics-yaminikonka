@@ -136,6 +136,7 @@ public class DCList<D>{
 
 	}
 	public void removeLast() {
+		//NullPointerException
 
 		if(size()>=2) {
 
