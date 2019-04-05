@@ -22,7 +22,7 @@ public class DLList<D>{
     public void display(){
         Node<D> current = head;
         while(current!=null){
-            System.out.println(current.getValue());
+            System.out.println("["+ current.position + "]" +current.getValue());
             current = current.getNextNode();
         }
         // /System.out.println(current.getValue());
@@ -107,7 +107,7 @@ public class DLList<D>{
             current=current.getNextNode();
             while(current!=null){
                 current.position=index;
-                index=index++;
+                index++;
                 current=current.getNextNode();
             }
           
@@ -120,29 +120,29 @@ public class DLList<D>{
         // Node<D> first = head.getNextNode();
         // first = head.getNextNode();
         head = head.getNextNode();
-        head.setPreviousNode(null);
-        // int count = 0;
-        // first.position = 0;
-        // while(first!=null){
-        //     first = first.getNextNode();
-        //     first.position--;
-        //     // count = first position;
-        //     // count++;
-        // }
+
+       if(head!= null){
+            head.setPreviousNode(null);
+            for(Node<D> i=head; i!=null;i=i.getNextNode()) {
+                i.position--;
+            }
+       }
 
     }
     public void removeLast(){
-        Node<D> current = head;
-        while(current.getNextNode()!=null){
-            current = current.getNextNode();
-        } 
-        // current.getPreviousNode().setNextNode(null);
-        current.setNextNode(null);
+        // Node<D> current = head;
+        // while(current.getNextNode()!=null){
+        //     current = current.getNextNode();
+        // } 
+        // // current.getPreviousNode().setNextNode(null);
+        // current.setNextNode(null);
 
         //  we can do in the following way
 
-        // Node<D> last = get(size() - 1);
-        // last.getPreviousNode().setNextNode(null);
+        Node<D> last = get(size() - 1);
+        if(last!=null){
+            last.getPreviousNode().setNextNode(null);
+        }
 
     }
     public void clear(){
